@@ -129,6 +129,7 @@ def calificaciones(alumno_id):
                     WHERE a.id = %s
                 """, (alumno_id,))
                 calificaciones = cursor.fetchall()
+                return redirect(url_for('calificaciones', alumno_id=alumno_id))
 
     finally:
         connection.close()
