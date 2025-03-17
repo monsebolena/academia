@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Academia</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Academia</h1>
+            <nav>
+                <a href="{{ url_for('home') }}">Inicio</a>
+                <a href="{{ url_for('registro') }}">Registrar Alumno</a>
+            </nav>
+        </header>
+
+        <h2>Alumnos Registrados</h2>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Calificaciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for alumno in alumnos %}
+                <tr>
+                    <td>{{ alumno['nombre'] }}</td>
+                    <td>{{ alumno['apellido'] }}</td>
+                    <td><a href="{{ url_for('calificaciones', alumno_id=alumno['id']) }}">Ver Calificaciones</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

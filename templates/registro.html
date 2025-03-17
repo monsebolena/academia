@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Alumno</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Academia</h1>
+            <nav>
+                <a href="{{ url_for('home') }}">Inicio</a>
+                <a href="{{ url_for('registro') }}">Registrar Alumno</a>
+            </nav>
+        </header>
+
+        <h2>Registrar Alumno</h2>
+
+        <form method="POST">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name="apellido" required>
+
+            <h3>Selecciona las asignaturas y asigna calificaciones:</h3>
+            {% for asignatura in asignaturas %}
+                <div class="nota">
+                    <label for="nota_{{ asignatura['id'] }}">{{ asignatura['nombre'] }}:</label>
+                    <input type="number" name="nota_{{ asignatura['id'] }}" min="0" max="10" step="0.1" placeholder="Calificación">
+                </div>
+            {% endfor %}
+
+            <button type="submit">Registrar</button>
+        </form>
+
+        <a href="{{ url_for('home') }}">Volver al inicio</a>
+    </div>
+</body>
+</html>

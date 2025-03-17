@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calificaciones de {{ alumno.nombre }} {{ alumno.apellido }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Academia</h1>
+            <nav>
+                <a href="{{ url_for('home') }}">Inicio</a>
+                <a href="{{ url_for('registro') }}">Registrar Alumno</a>
+            </nav>
+        </header>
+
+        <h2>Calificaciones de {{ alumno.nombre }} {{ alumno.apellido }}</h2>
+
+        <!-- Mostrar mensajes flash -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="flash-message">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Asignatura</th>
+                        <th>Calificación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for asignatura in asignaturas %}
+                        <tr>
+                            <td>{{ asignatura['nombre'] }}</td>
+                            <td>
+                                {% if calificaciones_dict[asignatura['id']] %}
+                                    <input type="number" name="nota_{{ asignatura['id'] }}" value="{{ calificaciones_dict[asignatura['id']]['nota'] }}" min="0" max="10" step="0.1">
+                                {% else %}
+                                    <input type="number" name="nota_{{ asignatura['id'] }}" placeholder="Nueva calificación" min="0" max="10" step="0.1">
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <button type="submit">Guardar Calificaciones</button>
+        </form>
+    </div>
+</body>
+</html>

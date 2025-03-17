@@ -1,0 +1,223 @@
+/* Reset de estilos básicos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body principal */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #d1e0e0, #f9f9f9); /* Fondo degradado suave */
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+/* Contenedor general */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px); /* Efecto sutil al pasar el mouse */
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 3em;
+    color: #2e4a57; /* Azul oscuro */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Navegación */
+nav {
+    margin-top: 20px;
+}
+
+nav a {
+    margin: 0 20px;
+    text-decoration: none;
+    color: #2e4a57;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: #5e7e8a; /* Azul más claro */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Títulos */
+h2, h3 {
+    color: #5e7e8a;
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Tabla */
+table {
+    width: 100%;
+    margin-top: 30px;
+    border-collapse: collapse;
+    background: #f9f9f9;
+    border-radius: 10px;
+}
+
+table th, table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-size: 1.1em;
+    color: #333;
+}
+
+table th {
+    background-color: #2e4a57; /* Azul oscuro */
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+table td {
+    background-color: #ffffff;
+    transition: background-color 0.3s ease;
+}
+
+table td:hover {
+    background-color: #f1f1f1; /* Gris suave */
+}
+
+/* Formulario */
+form {
+    margin-top: 30px;
+}
+
+form label {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    display: block;
+    color: #5e7e8a; /* Azul claro */
+    letter-spacing: 0.5px;
+}
+
+form input[type="text"],
+form input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 20px 0;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1.1em;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+form input[type="number"]:focus,
+form input[type="text"]:focus {
+    border-color: #2e4a57;
+    box-shadow: 0 0 8px rgba(46, 74, 87, 0.4);
+}
+
+/* Botones */
+form button {
+    background: #2e4a57;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1.2em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(46, 74, 87, 0.3);
+    transition: all 0.3s ease;
+}
+
+form button:hover {
+    background-color: #5e7e8a; /* Azul más claro */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(46, 74, 87, 0.4);
+}
+
+/* Enlaces */
+a {
+    color: #2e4a57;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #5e7e8a;
+    text-decoration: underline;
+}
+
+/* Mensajes flash */
+.flash-message {
+    background-color: #2e4a57;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+/* Inputs en tabla */
+input[type="number"] {
+    width: 80%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    background-color: #fff;
+}
+
+input[type="number"]:focus {
+    border-color: #2e4a57;
+    box-shadow: 0 0 8px rgba(46, 74, 87, 0.4);
+}
+
+/* Estilos para responsive */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    table th, table td {
+        padding: 12px;
+    }
+
+    form input[type="text"],
+    form input[type="number"] {
+        width: 100%;
+    }
+
+    form button {
+        width: 100%;
+    }
+}
